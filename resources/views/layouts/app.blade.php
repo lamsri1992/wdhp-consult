@@ -26,11 +26,12 @@
     <link href="{{ asset('nice/assets/css/style.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.0/css/buttons.dataTables.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/select/1.6.2/css/select.dataTables.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
     <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.css' rel='stylesheet' />
     <link rel="stylesheet" href="{{ asset('vendor/datepicker/jquery.datetimepicker.css') }}">
-    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/preload/preload.css') }}" rel="stylesheet">
 </head>
 <body>
@@ -85,9 +86,18 @@
                     [10, 25, 50, -1],
                     [10, 25, 50, "All"]
                 ],
-                // rowReorder: {
-                //     selector: 'td:nth-child(2)'
-                // },
+                columnDefs: [ {
+                    orderable: false,
+                    className: 'select-checkbox',
+                    targets:   0
+                } ],
+                select: {
+                    style: 'multi',
+                    selector: 'td:first-child'
+                },
+                rowReorder: {
+                    selector: 'td:nth-child(2)'
+                },
                 ordering: false,
                 responsive: true,
                 oLanguage: {

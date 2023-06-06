@@ -13,6 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
+// Route::get('/', function () {
+//     return view('index');
+// });
+
+Route::group(['prefix' => '/'], function () {
+	Route::get('consult','jhcis@consult')->name('consult');
+	Route::get('datacorrect','jhcis@datacorrect')->name('datacorrect');
+	Route::get('search','jhcis@search')->name('search');
 });
