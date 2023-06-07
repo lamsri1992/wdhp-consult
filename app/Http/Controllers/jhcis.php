@@ -24,7 +24,7 @@ class jhcis extends Controller
                 ->leftjoin('visit','visit.visitno','visitdiag.visitno')
                 ->leftjoin('person','person.pid','visit.pid')
                 ->where('visitdiag.diagcode','like', '%'.$request->icd.'%')
-                ->where('visitdiag.dxtype','01')
+                // ->where('visitdiag.dxtype','01')
                 ->whereBetween('visit.visitdate',[$request->dstart,$request->dended])
                 ->get();
         return view('search',['result'=>$result]);
@@ -33,8 +33,9 @@ class jhcis extends Controller
     function delete(Request $request)
     {
         $data = $request->formData;
+        // dd($data);
         foreach($data as $array){
-            DB::table('visitdiag')->where('visitno', $array[2])->delete();
+            DB::table('visitdiag')->where('visitno', $array[2])->where('diagcode', $array[6])->delete();
         }
     }
 
