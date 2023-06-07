@@ -18,7 +18,7 @@
                         </nav>
                     </div>
                     <!-- Horizontal Form -->
-                    <form>
+                    <form action="{{ route('consult.send') }}">
                         <div class="card-body row mb-3">
                             <label for="" class="col-sm-2 col-form-label">
                                 <span class="text-danger">*</span>
@@ -46,6 +46,7 @@
                                     <tr>
                                         <th class="text-center">รหัสโรค</th>
                                         <th>คำอธิบาย</th>
+                                        <th class="text-center">dxType</th>
                                     </tr>
                                 </thead>
                                 <tbody></tbody>
@@ -65,13 +66,13 @@
                             <label for="">
                                 Text Note
                             </label>
-                            <textarea class="form-control" style="height: 100px"></textarea>
+                            <textarea name="note" class="form-control" style="height: 100px"></textarea>
                         </div>
                         <div class="card-body" id="txtlevel" hidden>
                             <label for="">
                                 ระดับความเร่งด่วน
                             </label>
-                            <select name="" class="form-select">
+                            <select name="level" class="form-select">
                                 <option>----- กรุณาเลือก -----</option>
                                 <option value="Normal">ปกติ</option>
                                 <option value="Fast">เร่งด่วน</option>
@@ -79,10 +80,22 @@
                             </select>
                         </div>
                         <div class="card-body text-end" id="btn" hidden>
-                            <a href="#" class="btn btn-success">
-                                <i class="fas fa-check"></i>
-                                ส่งข้อมูล Consult
-                            </a>
+                            <button type="button" class="btn btn-success"
+                                onclick="Swal.fire({
+                                    title: 'ส่งข้อมูลปรึกษาแพทย์ทางไกล ?',
+                                    showCancelButton: true,
+                                    confirmButtonText: `<i class='fa-solid fa-check-circle'></i> ยืนยัน`,
+                                    cancelButtonText: `<i class='fa-solid fa-times-circle'></i> ยกเลิก`,
+                                    icon: 'success',
+                                }).then((result) => {
+                                    if (result.isConfirmed) {
+                                        form.submit();
+                                    } else if (result.isDenied) {
+                                        form.reset();
+                                    }
+                                })">
+                                <i class="fa-solid fa-plus-circle"></i> ส่ง Consult แพทย์
+                            </button>    
                         </div>
                     </form>
                     <!-- End Horizontal Form -->
@@ -216,6 +229,7 @@
                         '<tr>'+
                             '<td class="text-center">' + data[i].diagcode + '</td>' +
                             '<td>' + data[i].diseasenamethai + '</td>' +
+                            '<td class="text-center">' + data[i].dxtypedesc + '</td>' +
                         '</tr>'
                     );
                     $('#dx').append(row);

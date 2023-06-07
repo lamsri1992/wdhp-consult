@@ -19,6 +19,7 @@ Route::get('/', function () {
 
 Route::group(['prefix' => '/'], function () {
 	Route::get('consult','jhcis@consult')->name('consult');
+	Route::get('consult/send','jhcis@send')->name('consult.send');
 	Route::get('datacorrect','jhcis@datacorrect')->name('datacorrect');
 	Route::get('search','jhcis@search')->name('search');
 	Route::get('delete','jhcis@delete')->name('delete');

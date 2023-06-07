@@ -63,6 +63,22 @@ return [
             ]) : [],
         ],
 
+        'mysql2' => [
+            'driver' => env('DB_CONNECTION_WDHP'),
+            'host' => env('DB_HOST_WDHP', '127.0.0.1'),
+            'port' => env('DB_PORT_WDHP', '3306'),
+            'database' => env('DB_DATABASE_WDHP', 'forge'),
+            'username' => env('DB_USERNAME_WDHP', 'forge'),
+            'password' => env('DB_PASSWORD_WDHP', ''),
+            'unix_socket' => '',
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'strict' => true,
+            'engine' => null,
+        ],
+
         'pgsql' => [
             'driver' => 'pgsql',
             'url' => env('DATABASE_URL'),
