@@ -20,11 +20,11 @@ class jhcis extends Controller
     public function search(Request $request)
     {
         $result = DB::table('visitdiag')
-                ->select('visit.visitdate','visit.visitno','person.idcard','person.pid','person.fname','person.lname','visitdiag.diagcode','visit.symptoms')
+                ->select('visit.visitdate','visit.visitno','person.idcard','person.pid','person.fname','person.lname','visitdiag.diagcode','cdxtype.dxtypedesc','visit.symptoms')
                 ->leftjoin('visit','visit.visitno','visitdiag.visitno')
                 ->leftjoin('person','person.pid','visit.pid')
+                ->leftjoin('cdxtype','cdxtype.dxtypecode','visitdiag.dxtype')
                 ->where('visitdiag.diagcode','like', '%'.$request->icd.'%')
-                // ->where('visitdiag.dxtype','01')
                 ->whereBetween('visit.visitdate',[$request->dstart,$request->dended])
                 ->get();
         return view('search',['result'=>$result]);

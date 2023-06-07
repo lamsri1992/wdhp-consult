@@ -52,6 +52,7 @@
                                     <th>PID</th>
                                     <th>PATIENT</th>
                                     <th class="text-center">DIAG</th>
+                                    <th class="text-center">DIAG TYPE</th>
                                     {{-- <th>NOTE</th> --}}
                                 </tr>
                             </thead>
@@ -65,6 +66,7 @@
                                     <td>{{ $res->pid }}</td>
                                     <td>{{ $res->fname." ".$res->lname }}</td>
                                     <td class="text-center">{{ $res->diagcode }}</td>
+                                    <td class="text-center">{{ $res->dxtypedesc }}</td>
                                     {{-- <td>{{ $res->symptoms }}</td> --}}
                                 </tr>
                                 @endforeach
