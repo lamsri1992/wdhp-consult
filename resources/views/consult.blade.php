@@ -107,7 +107,7 @@
             if (result.dismiss === Swal.DismissReason.timer) {}
         })
         $.ajax({
-            url: "api/visit/" + vn,
+            url: "wdhp-consult/api/visit/" + vn,
             success: function (result) {
                 document.getElementById("txtnote").hidden = false;
                 document.getElementById("txtlevel").hidden = false;
@@ -206,7 +206,7 @@
         });
 
         $.ajax({
-            url: "/api/diag/" + vn,
+            url: "wdhp-consult/api/diag/" + vn,
             success: function (data) {
                 document.getElementById("dx").hidden = false;
                 $("#dx tbody").html("");
@@ -231,7 +231,7 @@
         });
 
         $.ajax({
-            url: "/api/drug/" + vn,
+            url: "wdhp-consult/api/drug/" + vn,
             success: function (data) {
                 document.getElementById("drug").hidden = false;
                 $("#drug tbody").html("");
