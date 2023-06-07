@@ -29,4 +29,13 @@ class jhcis extends Controller
                 ->get();
         return view('search',['result'=>$result]);
     }
+
+    function delete(Request $request)
+    {
+        $data = $request->formData;
+        foreach($data as $array){
+            DB::table('visitdiag')->where('visitno', $array[2])->delete();
+        }
+    }
+
 }

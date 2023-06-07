@@ -9,6 +9,14 @@
                         <i class="far fa-check-square"></i>
                         Data-Correct :: ระบบตรวจสอบข้อมูล
                     </h5>
+                    <div class="col-md-12">
+                        <nav style="--bs-breadcrumb-divider: '-';">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{{ url('/') }}">หน้าหลัก</a></li>
+                                <li class="breadcrumb-item active">ระบบตรวจสอบข้อมูล</li>
+                            </ol>
+                        </nav>
+                    </div>
                     <!-- Horizontal Form -->
                     <form action="{{ route('search') }}">
                         <div class="card-body row mb-3">

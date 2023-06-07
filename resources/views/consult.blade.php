@@ -9,6 +9,14 @@
                         <i class="far fa-clipboard"></i>
                         Consult Form :: ระบุข้อมูลขอคำปรึกษาจากแพทย์
                     </h5>
+                    <div class="col-md-12">
+                        <nav style="--bs-breadcrumb-divider: '-';">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{{ url('/') }}">หน้าหลัก</a></li>
+                                <li class="breadcrumb-item active">ระบุข้อมูลขอคำปรึกษาจากแพทย์</li>
+                            </ol>
+                        </nav>
+                    </div>
                     <!-- Horizontal Form -->
                     <form>
                         <div class="card-body row mb-3">
