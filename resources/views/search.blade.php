@@ -142,6 +142,7 @@
         Swal.fire({
             title: 'ยืนยันการลบรายการ',
             text: 'หากลบข้อมูลแล้ว จะไม่สามารถนำกลับได้อีก',
+            position: 'top',
             showCancelButton: true,
             confirmButtonText: `ยืนยัน`,
             cancelButtonText: `ยกเลิก`,
@@ -156,6 +157,7 @@
                         let timerInterval
                             Swal.fire({
                             title: 'กำลังลบรายการ',
+                            position: 'top',
                             timer: 2000,
                             timerProgressBar: true,
                             didOpen: () => {
@@ -178,6 +180,7 @@
                                     Swal.fire({
                                     icon: 'success',
                                     title: 'ลบรายการสำเร็จ',
+                                    position: 'top',
                                     showConfirmButton: false,
                                     timer: 3000
                                 })
